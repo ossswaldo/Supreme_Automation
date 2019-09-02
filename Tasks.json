@@ -1,0 +1,72 @@
+{
+  "tasks": {
+  "tasks": [
+    {
+      "category": "T-Shirts",
+      "color": "black",
+      "delay": "2750",
+      "keywords": "+banner,+tee",
+      "profile": "OswaldoCredit",
+      "size": "medium",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    },
+    {
+      "category": "T-Shirts",
+      "color": "black",
+      "delay": "3275",
+      "keywords": "+banner,+tee",
+      "profile": "OswaldoCredit",
+      "size": "medium",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    },
+    {
+      "category": "Accessories",
+      "color": "",
+      "delay": "2750",
+      "keywords": "+measuring,+cup",
+      "profile": "Gideon8",
+      "size": "",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    },
+    {
+      "category": "T-Shirts",
+      "color": "heather grey",
+      "delay": "2750",
+      "keywords": "+banner,+tee",
+      "profile": "Gideon8",
+      "size": "medium",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    },
+    {
+      "category": "Sweatshirts",
+      "color": "navy",
+      "delay": "2750",
+      "keywords": "+spread,+logo",
+      "profile": "NoobPreme",
+      "size": "medium",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    },
+    {
+      "category": "Tops/Sweaters",
+      "color": "black",
+      "delay": "3250",
+      "keywords": "+velour,+jersey",
+      "profile": "NoobPreme",
+      "size": "medium",
+      "store": "Supreme Mobile",
+      "target": "https://www.supremenewyork.com/mobile_stock.json",
+      "type": "keywords"
+    }
+  ]
+}
+}

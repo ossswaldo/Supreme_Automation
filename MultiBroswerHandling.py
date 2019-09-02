@@ -38,7 +38,7 @@ def test_logic():
     time.sleep(20)
     driver.quit()
 
-N = 5   # Number of browsers to spawn
+N = 2   # Number of browsers to spawn
 thread_list = list()
 
 # Start test
