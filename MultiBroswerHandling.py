@@ -19,7 +19,8 @@ def test_logic():
     url = 'https://discordapp.com/channels/'
     driver.get(url)
 
-    print(datetime.now(),'Discord Launched, Searching For Fields.')
+    t = threading.Thread(name='Task {}')
+    print(datetime.now(),t.name, 'Discord Launched, Searching For Fields.')
     inputElement = driver.find_element_by_xpath("//*[@type='email']")
     inputElement.send_keys('arguetaoswaldo@yahoo.com')
     print(datetime.now(),'Typing in email bar')
@@ -29,28 +30,28 @@ def test_logic():
     print(datetime.now(),'Typing in password bar')
 
 
-    wait = WebDriverWait(driver, 10)
-    on = wait.until(EC.visibility_of_element_located((By.XPATH,"//*[@type='submit']")))
-    ActionChains(driver).move_to_element(on).click().perform()
-    print(datetime.now(),'Clicking Log In')
-
     # Implement your test logic
     time.sleep(20)
     driver.quit()
 
-N = 2   # Number of browsers to spawn
-thread_list = list()
+def multi():
 
-# Start test
-for i in range(N):
-    t = threading.Thread(name='Test {}'.format(i), target=test_logic)
-    t.start()
-    time.sleep(1)
-    print (t.name , ' started!')
-    thread_list.append(t)
+    N = 2   # Number of browsers to spawn
+    thread_list = list()
 
-# Wait for all thre<ads to complete
-for thread in thread_list:
-    thread.join()
+    # Start test
+    for i in range(N):
+        t = threading.Thread(name='Task {}'.format(i), target=test_logic)
+        t.start()
+        time.sleep(1)
+        print (t.name , 'started!')
+        thread_list.append(t)
 
-print ('Test completed!')
+    # Wait for all thre<ads to complete
+    for thread in thread_list:
+        thread.join()
+
+    print ('Test completed!')
+
+
+multi()
