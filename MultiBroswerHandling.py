@@ -15,19 +15,19 @@ from datetime import datetime
 
 def test_logic():
 
-    driver = webdriver.Chrome(executable_path=r'/Users/Antonio/Documents/CODE/Supreme_Automation/chromedriver')
+    driver = webdriver.Chrome(executable_path=r'./chromedriver')
     url = 'https://discordapp.com/channels/'
     driver.get(url)
 
-    t = threading.Thread(name='Task {}')
-    print(datetime.now(),t.name, 'Discord Launched, Searching For Fields.')
+    t = threading.current_thread()
+    print(datetime.now(), t.name, 'Discord Launched, Searching For Fields.')
     inputElement = driver.find_element_by_xpath("//*[@type='email']")
     inputElement.send_keys('arguetaoswaldo@yahoo.com')
-    print(datetime.now(),'Typing in email bar')
+    print(datetime.now(), t.name,'Typing in email bar')
 
     inputElement = driver.find_element_by_xpath("//*[@type='password']")
     inputElement.send_keys('playa0976')
-    print(datetime.now(),'Typing in password bar')
+    print(datetime.now(), t.name,'Typing in password bar')
 
 
     # Implement your test logic
@@ -36,7 +36,7 @@ def test_logic():
 
 def multi():
 
-    N = 2   # Number of browsers to spawn
+    N = 5   # Number of browsers to spawn
     thread_list = list()
 
     # Start test
@@ -44,14 +44,14 @@ def multi():
         t = threading.Thread(name='Task {}'.format(i), target=test_logic)
         t.start()
         time.sleep(1)
-        print (t.name , 'started!')
+        print (datetime.now(),t.name , 'started!')
         thread_list.append(t)
 
     # Wait for all thre<ads to complete
     for thread in thread_list:
         thread.join()
 
-    print ('Test completed!')
+    print (datetime.now(), 'Test completed for %d tasks!' %N)
 
 
 multi()
