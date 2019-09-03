@@ -28,9 +28,13 @@ class ChangeTheMarket():
         #options.add_argument('headless')
         self.driver = webdriver.Chrome(chrome_options=options, executable_path=r'/Users/BigO/Documents/CODE/Supreme_Community/chromedriver')
 
+    def cleanUpBrowser(self):
+        print(datetime.now(),'Quitting Browser')
+        self.driver.quit()
+
     def execute(self):
         self.setupselenium()
-        self.discord()
+
         self.cleanUpBrowser()
 
     def Multithreading(self):
@@ -53,8 +57,7 @@ class ChangeTheMarket():
 
 
         def manipulation(self):
-        json_data = "/Users/Antonio/Documents/CODE/Supreme_Automation/Tasks.json"
-
+        json_data = "./Tasks.json"
         with open(json_data) as f:
             accounts = dict(json.loads(f.read()))
             for task_num, values in enumerate(accounts[key]['tasks']): # by using enumerate we are itterating through the json to find the index so we know how many tasks will be placed.
@@ -67,26 +70,26 @@ class ChangeTheMarket():
         def sort(catagorie):
             if(catagorie ==  "Jackets"):
                 return ("https://www.supremenewyork.com/shop/all/jackets")
-            if(catagorie ==  "Shirts"):
+            elif(catagorie ==  "Shirts"):
                 return("https://www.supremenewyork.com/shop/all/shirts")
-            if(catagorie ==  "Tops/Sweaters"):
+            elif(catagorie ==  "Tops/Sweaters"):
                 return ("https://www.supremenewyork.com/shop/all/tops_sweaters")
-            if(catagorie ==  "Sweatshirts"):
+            elif(catagorie ==  "Sweatshirts"):
                 return ("https://www.supremenewyork.com/shop/all/sweatshirts")
-            if(catagorie ==  "Pants"):
+            elif(catagorie ==  "Pants"):
                 return ("https://www.supremenewyork.com/shop/all/pants")
-            if(catagorie ==  "Shorts"):
+            elif(catagorie ==  "Shorts"):
                 return ("https://www.supremenewyork.com/shop/all/shorts")
-            if(catagorie ==  "T-Shirts"):
+            elif(catagorie ==  "T-Shirts"):
                 return ("https://www.supremenewyork.com/shop/all/t-shirts")
-            if(catagorie ==  "Hats"):
+            elif(catagorie ==  "Hats"):
                 return ("https://www.supremenewyork.com/shop/all/hats")
-            if(catagorie ==  "Bags"):
+            elif(catagorie ==  "Bags"):
                 return ("https://www.supremenewyork.com/shop/all/bags")
-            if(catagorie ==  "Accessories"):
+            elif(catagorie ==  "Accessories"):
                 return ("https://www.supremenewyork.com/shop/all/accessories")
-            if(catagorie ==  "Skate"):
+            elif(catagorie ==  "Skate"):
                 return ("https://www.supremenewyork.com/shop/all/skate")
 
-            # items = "T-Shirts"
-            # sort(items)
+                # items = "T-Shirts"
+                # sort(items)

@@ -15,6 +15,7 @@ from datetime import datetime
 
 def test_logic():
 
+
     driver = webdriver.Chrome(executable_path=r'./chromedriver')
     url = 'https://discordapp.com/channels/'
     driver.get(url)
@@ -43,7 +44,7 @@ def multi():
     for i in range(N):
         t = threading.Thread(name='Task {}'.format(i), target=test_logic)
         t.start()
-        time.sleep(1)
+        #time.sleep(1)
         print (datetime.now(),t.name , 'started!')
         thread_list.append(t)
 
