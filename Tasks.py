@@ -54,7 +54,7 @@ class ChangeTheMarket():
                     #print(task[5])
 
         return self.temp
-        #task = manipulation(self)
+    
 
     def arg(self):
         print(self.temp[5])
