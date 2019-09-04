@@ -17,7 +17,15 @@ class ChangeTheMarket():
 
     def __init__(self):
         self.driver = None
-        self.temp = None
+        self.task = None
+        self.taskAmount = None
+
+    def execute(self):
+
+        # self.setupselenium()
+        self.manipulation()
+        self.arg()
+        # self.cleanUpBrowser()
 
     def setupselenium(self):
         options = Options()
@@ -27,41 +35,34 @@ class ChangeTheMarket():
         options.add_argument('ignore-certificate-errors')
         #options.add_argument('incognito')
         #options.add_argument('headless')
-        self.driver = webdriver.Chrome(chrome_options=options, executable_path=r'/Users/BigO/Documents/CODE/Supreme_Community/chromedriver')
+        self.driver = webdriver.Chrome(chrome_options=options, executable_path=r'./chromedriver')
 
     def cleanUpBrowser(self):
         print(datetime.now(),'Quitting Browser')
         self.driver.quit()
 
-    def execute(self):
 
-        # self.setupselenium()
-        #
-        # self.cleanUpBrowser()
-        self.manipulation()
-        self.arg()
-
-    #@staticmethod
     def manipulation(self):
         json_data = "./Tasks.json"
 
         with open(json_data) as f:
             accounts = dict(json.loads(f.read()))
             for key in accounts:
-                for task_num, values in enumerate(accounts[key]['tasks']): # by using enumerate we are itterating through the json to find the index so we know how many tasks will be placed.
+                for self.taskAmount, values in enumerate(accounts[key]['tasks']): # by using enumerate we are itterating through the json to find the index so we know how many tasks will be placed.
                     #print ("%d : %s" % (task_num, values))
-                    self.temp = accounts[key]['tasks']
+                    self.task = accounts[key]['tasks']
                     #print(task[5])
 
-        return self.temp
-    
+        return self.task, self.taskAmount
+
 
     def arg(self):
-        print(self.temp[5])
+        print(self.taskAmount)
+        print(self.task[5])
 
 
     def Multithreading(self):
-        N = 2   # Number of browsers to spawn
+        N = self.taskAmount   # Number of browsers to spawn
         thread_list = list()
 
         # Start test
