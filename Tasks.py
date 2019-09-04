@@ -17,6 +17,7 @@ class ChangeTheMarket():
 
     def __init__(self):
         self.driver = None
+        self.temp = None
 
     def setupselenium(self):
         options = Options()
@@ -33,9 +34,31 @@ class ChangeTheMarket():
         self.driver.quit()
 
     def execute(self):
-        self.setupselenium()
 
-        self.cleanUpBrowser()
+        # self.setupselenium()
+        #
+        # self.cleanUpBrowser()
+        self.manipulation()
+        self.arg()
+
+    #@staticmethod
+    def manipulation(self):
+        json_data = "./Tasks.json"
+
+        with open(json_data) as f:
+            accounts = dict(json.loads(f.read()))
+            for key in accounts:
+                for task_num, values in enumerate(accounts[key]['tasks']): # by using enumerate we are itterating through the json to find the index so we know how many tasks will be placed.
+                    #print ("%d : %s" % (task_num, values))
+                    self.temp = accounts[key]['tasks']
+                    #print(task[5])
+
+        return self.temp
+        #task = manipulation(self)
+
+    def arg(self):
+        print(self.temp[5])
+
 
     def Multithreading(self):
         N = 2   # Number of browsers to spawn
@@ -56,40 +79,34 @@ class ChangeTheMarket():
         print ('Test completed!')
 
 
-        def manipulation(self):
-        json_data = "./Tasks.json"
-        with open(json_data) as f:
-            accounts = dict(json.loads(f.read()))
-            for task_num, values in enumerate(accounts[key]['tasks']): # by using enumerate we are itterating through the json to find the index so we know how many tasks will be placed.
-                print ("%d : %s" % (task_num, values))
+    def sort(catagorie):
+        if(catagorie ==  "Jackets"):
+            return ("https://www.supremenewyork.com/shop/all/jackets")
+        elif(catagorie ==  "Shirts"):
+            return("https://www.supremenewyork.com/shop/all/shirts")
+        elif(catagorie ==  "Tops/Sweaters"):
+            return ("https://www.supremenewyork.com/shop/all/tops_sweaters")
+        elif(catagorie ==  "Sweatshirts"):
+            return ("https://www.supremenewyork.com/shop/all/sweatshirts")
+        elif(catagorie ==  "Pants"):
+            return ("https://www.supremenewyork.com/shop/all/pants")
+        elif(catagorie ==  "Shorts"):
+            return ("https://www.supremenewyork.com/shop/all/shorts")
+        elif(catagorie ==  "T-Shirts"):
+            return ("https://www.supremenewyork.com/shop/all/t-shirts")
+        elif(catagorie ==  "Hats"):
+            return ("https://www.supremenewyork.com/shop/all/hats")
+        elif(catagorie ==  "Bags"):
+            return ("https://www.supremenewyork.com/shop/all/bags")
+        elif(catagorie ==  "Accessories"):
+            return ("https://www.supremenewyork.com/shop/all/accessories")
+        elif(catagorie ==  "Skate"):
+            return ("https://www.supremenewyork.com/shop/all/skate")
 
-                task = accounts[key]['tasks']
-                print(task[5])
+            # items = "T-Shirts"
+            # sort(items)
 
 
-        def sort(catagorie):
-            if(catagorie ==  "Jackets"):
-                return ("https://www.supremenewyork.com/shop/all/jackets")
-            elif(catagorie ==  "Shirts"):
-                return("https://www.supremenewyork.com/shop/all/shirts")
-            elif(catagorie ==  "Tops/Sweaters"):
-                return ("https://www.supremenewyork.com/shop/all/tops_sweaters")
-            elif(catagorie ==  "Sweatshirts"):
-                return ("https://www.supremenewyork.com/shop/all/sweatshirts")
-            elif(catagorie ==  "Pants"):
-                return ("https://www.supremenewyork.com/shop/all/pants")
-            elif(catagorie ==  "Shorts"):
-                return ("https://www.supremenewyork.com/shop/all/shorts")
-            elif(catagorie ==  "T-Shirts"):
-                return ("https://www.supremenewyork.com/shop/all/t-shirts")
-            elif(catagorie ==  "Hats"):
-                return ("https://www.supremenewyork.com/shop/all/hats")
-            elif(catagorie ==  "Bags"):
-                return ("https://www.supremenewyork.com/shop/all/bags")
-            elif(catagorie ==  "Accessories"):
-                return ("https://www.supremenewyork.com/shop/all/accessories")
-            elif(catagorie ==  "Skate"):
-                return ("https://www.supremenewyork.com/shop/all/skate")
-
-                # items = "T-Shirts"
-                # sort(items)
+if __name__== "__main__":
+    taskMaster =  ChangeTheMarket()
+    taskMaster.execute()
